@@ -1,6 +1,9 @@
 
 """
-#Pretrained model for generating sentence embeddings.
+# EMBEDDING ?
+In Generative AI, embeddings are mathematical representations of data (like words, sentences, or images) translated into lists of numbers, known as vectors.
+
+# Pretrained model for generating sentence embeddings.
 model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
 # WE created our own sample sentence to test.
@@ -16,7 +19,7 @@ print(f"Embedding: {len(embeddings)}")
 
 
 
-#---------Main Execution-----------------
+#---------Main Execution-------------------------------------------------------
 from sentence_transformers import SentenceTransformer
 import pickle
 import numpy as np
@@ -42,11 +45,9 @@ def check_similarity(embeddings):
 similar = check_similarity(embedded)
 """
 
-
 def save_embeddings(embeddings):
     np.save("Embeddings.npy", embeddings)
     print("Embeddings saved successfully")
-
 
 
 chunks = load_chunks()
