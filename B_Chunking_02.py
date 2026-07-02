@@ -17,11 +17,10 @@ import pickle    # to save Python objects (.pkl files)
 
 # Task 1: Load the extracted.txt file in read mode.
 def load_file():
-    with open('extract_text.txt') as file:   # Open text file in read mode studied during file handling in python.
-        text = file.read()                  # Read complete file content
-        return text
+    with open('extract_text.txt', 'r', encoding='utf-8') as file:   # Open text file in read mode studied during file handling in python.
+        text = file.read()                                              # Read complete file content
+    return text
     
-
 
 # Task 2: Chunking the raw text from extracted.txt file in the form of chunks .
 def split_text(text):

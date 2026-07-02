@@ -1,63 +1,84 @@
 '''
-Day - 01 
+Day - 01
 We will extract all the text from our PDF
-We will store entire text in on text file.
+We will store entire text in one text file.
 '''
 
-import fitz   
+import fitz
 # Fitz also known as PyMuPDF powerful open-source Python library designed for working with PDF documents.
 
-
-import os 
+import os
 # The os module in Python provides a way to interact with the operating system.
 # It includes functions to handle file operations, directory management, and other OS-related tasks.
 
- 
 
 # STEP 1: EXTRACT THE PAGES:
 
-def extract_text(pdf):   # This function opens pdf and will extract text from each pages.
-    pass
+def extract_text(pdf):
+    # This function opens the PDF and extracts text from each page.
 
-    if not os.path.exists(pdf):             # If os does not find my PDF in the ROOT DIRECTORY then this code would be executed.
-        print("Folder does not exist.")
+    if not os.path.exists(pdf):
+        # If os does not find my PDF in the ROOT DIRECTORY then this code would be executed.
+        print("PDF file does not exist.")
+        return None
 
-    
-    doc = fitz.open(pdf)     # fitz open the pdf
-    print(len(doc))
+    doc = fitz.open(pdf)
+    # fitz opens the PDF.
 
+    print(f"Total Pages: {len(doc)}")
 
+    # STEP 2: LOOP THROUGH EVERY PAGE:
 
-# STEP 2: LOOP THROUGH EVERY PAGE:
+    all_text = []
+    # This variable stores all the text extracted from each page.
 
-    all_text = []     # ye ek variable hain jiske ander saara text aa jayega jo har i_th iteration ke baad extract hoga.
+    for i in range(len(doc)):
+        # Total_pages = 5, i --> 0, 1, 2, 3, 4
 
-    for i in range(len(doc)):    # Total_page = 5, i -->0, 1, 2, 3, 4, 5   
-        page = doc[i]           # doc[0] ----> Page 1 open karega
-        text = page.get_text()     # .get_text ---> ith page se text extract karega. 
-        all_text.append(text)      # .append se hum pichle wale i th value ke text ko append karte jayenge ek sath ek hi text file mein.
+        page = doc[i]
+        # doc[0] ----> Opens Page 1
 
-        print(all_text)     # This introduces \n we don't want this.
+        text = page.get_text()
+        # .get_text() extracts text from the i-th page.
 
+        all_text.append(text)
+        # .append() stores the extracted text of each page into the list.
 
-    # Step 3: Join all pages without \n between text.
+        print(f"Page {i + 1} extracted successfully.")
+        # Displays extraction status for each page.
+
+    doc.close()
+    # Closes the PDF file after extraction.
+
+    # STEP 3: JOIN ALL PAGES INTO A SINGLE STRING
+
     full_text = "\n".join(all_text)
-    return(full_text)
-    
-extract_text('Intro_ML.pdf')
+    # Combines text from all pages into one string.
+
+    return full_text
 
 
-
-# Step 4 : Save to extracted_text.txt :
+# STEP 4: SAVE TO extract_text.txt
 
 def save_file(text):
-    with open('extract_text.txt', 'w') as file :     # w is the mode which creates file.  # file is the variable in wich the values are stored.
+
+    if text is None:
+        print("No text available to save.")
+        return
+
+    with open('extract_text.txt', 'w', encoding='utf-8') as file:
+        # 'w' is the write mode which creates the file if it does not exist.
+        # encoding='utf-8' is used to handle Unicode characters properly.
+
         file.write(text)
-        print("All the text from each page of PDF is extracted successfully")
+
+        print("All the text from each page of PDF is extracted successfully.")
 
 
-#1. Extract_Text 
+# 1. Extract_Text
+
 text = extract_text('Intro_ML.pdf')
 
-#2. Save_File  
+# 2. Save_File
+
 save_file(text)
