@@ -2,3 +2,8 @@
 /llm_env
 /.env
 /__pycache__
+/extract_text.txt
+/chunks_texts.pkl
+/Chunks.pkl
+/Embeddings.npy
+/faiss_index.pkl
