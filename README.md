@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔮 ClarificAI
+# ClarificAI
 ### A Modular Retrieval-Augmented Generation (RAG) Agent for Grounded PDF Question Answering
 
 <p>
@@ -41,7 +41,7 @@ No hallucinations. No guessing. Just retrieval-backed, verifiable answers.
 
 ---
 
-## 🔎 Overview
+## Overview
 
 **ClarificAI** is an end-to-end Retrieval-Augmented Generation (RAG) application that lets a user upload a PDF document and interrogate it in natural language. Instead of relying on an LLM's internal (and often outdated or hallucinated) knowledge, the system **retrieves the most relevant passages from the document itself** and passes them to the language model as grounded context — guaranteeing that every answer is traceable back to the source text.
 
@@ -51,7 +51,7 @@ The frontend is a custom-themed **Streamlit** chat interface with left/right mes
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 | Feature | Description |
 |---|---|
@@ -65,7 +65,7 @@ The frontend is a custom-themed **Streamlit** chat interface with left/right mes
 
 ---
 
-## 🏗 System Architecture
+## System Architecture
 
 ```
                          ┌───────────────────────┐
@@ -114,7 +114,7 @@ The frontend is a custom-themed **Streamlit** chat interface with left/right mes
 
 ---
 
-## 📦 Module Breakdown
+## Module Breakdown
 
 | Module | Responsibility | Input | Output |
 |---|---|---|---|
@@ -128,7 +128,7 @@ The frontend is a custom-themed **Streamlit** chat interface with left/right mes
 
 ---
 
-## 🔬 How the RAG Pipeline Works
+## How the RAG Pipeline Works
 
 1. **Extraction** — The uploaded PDF's raw text is pulled out and saved as a flat text file.
 2. **Chunking** — The text is split into overlapping segments so that context isn't lost at chunk boundaries (a sentence split across two chunks still has some shared context).
@@ -139,7 +139,7 @@ The frontend is a custom-themed **Streamlit** chat interface with left/right mes
 
 ---
 
-## 🛡 Anti-Hallucination Guardrails
+## Anti-Hallucination Guardrails
 
 ### 1. Distance-Threshold Cutoff
 
@@ -171,7 +171,7 @@ Together, these two layers — **retrieval-side filtering** and **generation-sid
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -210,7 +210,7 @@ LLM-Based-AI-Agent/
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the repository
 
@@ -240,7 +240,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🔑 Configuration
+## Configuration
 
 The app requires a **Google Gemini API key**. Get one from [Google AI Studio](https://aistudio.google.com/app/apikey).
 
@@ -261,7 +261,7 @@ GEMINI_API_KEY = "your_api_key_here"
 
 ---
 
-## 🚀 Running the App
+## Running the App
 
 ```bash
 streamlit run app.py
@@ -275,7 +275,7 @@ http://localhost:8501
 
 ---
 
-## 🧭 Usage Walkthrough
+## Usage Walkthrough
 
 1. **Upload a PDF** from the sidebar file uploader.
 2. Wait for the status panel to confirm the document has been **indexed** (chunked, embedded, and loaded into FAISS).
@@ -286,7 +286,7 @@ http://localhost:8501
 
 ---
 
-## 🎛 Tuning Retrieval Behaviour
+## Tuning Retrieval Behaviour
 
 Two sidebar sliders let you control retrieval quality without editing code:
 
@@ -299,7 +299,7 @@ Two sidebar sliders let you control retrieval quality without editing code:
 
 ---
 
-## 🧯 Troubleshooting
+## Troubleshooting
 
 | Issue | Likely Cause | Fix |
 |---|---|---|
@@ -311,7 +311,7 @@ Two sidebar sliders let you control retrieval quality without editing code:
 
 ---
 
-## 🗺 Roadmap
+## Roadmap
 
 - [ ] Support for multi-PDF sessions (query across several documents at once)
 - [ ] Swap `IndexFlatL2` for an approximate index (e.g. `IndexIVFFlat`) for large document sets
@@ -321,13 +321,13 @@ Two sidebar sliders let you control retrieval quality without editing code:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, issues, and feature requests are welcome. Feel free to open an issue or submit a pull request.
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
